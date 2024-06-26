@@ -1,0 +1,286 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+canvas#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #0f0;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+nav {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #0f0;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+.content {
+    padding: 8rem 2rem 4rem 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.matrix-text {
+    text-shadow: 0 0 5px #0f0;
+}
+
+.bts-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.bts-option {
+    width: 45%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0;
+    margin-bottom: 2rem;
+}
+
+.document-section {
+    margin: 2rem 0;
+}
+
+.document-section h3 {
+    margin-bottom: 1rem;
+}
+
+.document-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.document-section ul li {
+    margin: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border: 1px solid #0f0;
+}
+
+.document-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.document-links a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.document-links a:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#contact-form label,
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    max-width: 600px;
+    margin: 0.75rem 0;
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 0.75rem;
+}
+
+.matrix-button {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.matrix-button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+.contact-info, .contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+.profile-section {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #0f0;
+}
+
+.certification-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.certification-image {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.certification-image:hover {
+    transform: scale(1.5);
+}
+
+/* Nouveau CSS pour la section "Mes projets" */
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.project-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border: 1px solid #0f0;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 300px;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+.project-links {
+    margin-top: 10px;
+}
+
+.project-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0f0;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid #0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project-links a:hover {
+    background-color: #0f0;
+    color: #000;
+}
