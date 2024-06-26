@@ -1,58 +1,38 @@
-document.getElementById('enterButton').addEventListener('click', function() {
-    document.getElementById('matrix-animation').style.display = 'block';
-    startMatrixAnimation();
-    
-    setTimeout(function() {
-        // Hide the button and animation container after 5 seconds
-        document.getElementById('enterButton').style.display = 'none';
-        document.getElementById('matrix-animation').style.display = 'none';
-
-        // Show the portfolio content
-        document.querySelector('header').style.display = 'block';
-        document.querySelectorAll('section.content').forEach(section => {
-            section.style.display = 'block';
-        });
-        document.querySelector('footer').style.display = 'block';
-    }, 5000);  // Durée de l'animation en millisecondes
-});
-
-function startMatrixAnimation() {
+document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('matrix-canvas');
-    const ctx = canvas.getContext('2d');
+    const context = canvas.getContext('2d');
 
+    // Set canvas dimensions
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
     const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
 
-    function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Define the characters to use in the animation
+    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const charactersLength = characters.length;
 
-        ctx.fillStyle = '#0f0';
-        ctx.font = fontSize + 'px monospace';
+    function drawMatrix() {
+        context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < drops.length; i++) {
-            const text = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        context.fillStyle = '#0f0';
+        context.font = `${fontSize}px monospace`;
 
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+        drops.forEach((y, index) => {
+            const text = characters.charAt(Math.floor(Math.random() * charactersLength));
+            const x = index * fontSize;
+            context.fillText(text, x, y * fontSize);
+
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[index] = 0;
             }
 
-            drops[i]++;
-        }
+            drops[index]++;
+        });
     }
 
-    setInterval(draw, 33);
-}
-
-// Réinitialisation de la taille du canvas lors du redimensionnement de la fenêtre
-window.addEventListener('resize', () => {
-    const canvas = document.getElementById('matrix-canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    setInterval(drawMatrix, 33);
 });
