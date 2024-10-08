@@ -267,6 +267,9 @@ footer {
 }
 
 .project-links {
+    display: inline-flex; 
+    gap: 15px; 
+    justify-content: center;
     margin-top: 10px;
 }
 
