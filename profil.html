@@ -72,8 +72,15 @@
         </div>
         <div class="profile-section">
             <h3 class="matrix-text">Mes Compétences</h3>
-            <p class="matrix-text">A suivre</p>
+            <div class="skills-carousel">
+                <img src="images/html-logo.png" alt="Logo de compétence en HTML" class="skill-logo">
+                <img src="images/css-logo.png" alt="Logo de compétence en CSS" class="skill-logo">
+                <img src="images/js-logo.png" alt="Logo de compétence en JavaScript" class="skill-logo">
+                <img src="images/python-logo.png" alt="Logo de compétence en Python" class="skill-logo">
+                <img src="images/sql-logo.png" alt="Logo de compétence en SQL" class="skill-logo">
+            </div>
         </div>
+
         <div class="profile-section">
             <h3 class="matrix-text">Certifications acquises</h3>
             <div class="certification-gallery">
@@ -82,13 +89,22 @@
                 <img src="Certifications/NdgLinux.jpg" alt="Linux" class="certification-image">
             </div>
         </div>
-        <div class="profile-section">
-            <h3 class="matrix-text">Mon CV</h3>
-            <div class="cv-links">
-                <a href="Documents/CV.pdf" target="_blank">Consulter</a>
-                <a href="Documents/CV.pdf" download>Télécharger</a>
-            </div>
-        </div>
+
+        <section id="contact" class="profile-section">
+            <h3 class="matrix-text">Contactez-moi</h3>
+            <form action="#" method="post">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
     </section>
 
     <footer>
