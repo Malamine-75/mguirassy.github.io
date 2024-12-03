@@ -338,3 +338,96 @@ form button:hover {
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
+/* BTS Section */
+.bts-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.bts-option {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0;
+    width: 45%;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+}
+
+.bts-option:hover {
+    transform: scale(1.05);
+}
+
+.bts-option h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.bts-option p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+/* Project Section */
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.project-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border: 1px solid #0f0;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; /* Uniforme pour toutes les images */
+    object-fit: cover; /* Ajuste l'image sans la déformer */
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+.project-links {
+    display: inline-flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.project-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0f0;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid #0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project-links a:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
