@@ -1,17 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('matrix-canvas');
+
+    if (!canvas) {
+        console.log("Canvas non trouvé sur cette page.");
+        return; // Si le canvas n'est pas trouvé, on quitte la fonction.
+    }
+
+    console.log("Canvas trouvé et script chargé !");
     const context = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let dropSpeed = 0.7;
+    let characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-    const fontSize = 14;
+    // Ajuste la taille du canvas en fonction de la fenêtre
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        console.log("Canvas redimensionné à : " + window.innerWidth + "x" + window.innerHeight);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const fontSize = 16;
     const columns = Math.floor(canvas.width / fontSize);
-    const dropSpeed = 0.7; 
-    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
     const spacing = fontSize * 4;
-    const drops = Array.from({ length: columns }, (_, index) => Math.random() * -spacing);
+    const drops = Array.from({ length: columns }, () => Math.random() * -spacing);
 
+    // Fonction d'animation Matrix
     function drawMatrix() {
         context.fillStyle = 'rgba(0, 0, 0, 0.05)';
         context.fillRect(0, 0, canvas.width, canvas.height);
@@ -35,5 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(drawMatrix);
     }
 
+    // Changer la vitesse de la chute avec mousemove
+    canvas.addEventListener('mousemove', (event) => {
+        dropSpeed = Math.max(0.1, (event.clientY / canvas.height) * 2);
+    });
+
+    // Modifier les caractères sur clic
+    canvas.addEventListener('click', () => {
+        console.log("Canvas cliqué, changement des caractères.");
+        characters = '漢字カタカナひらがな'; // Exemple de caractères japonais
+    });
+
+    // Démarrer l'animation
     drawMatrix();
 });

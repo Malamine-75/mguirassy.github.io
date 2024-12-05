@@ -8,42 +8,46 @@
 </head>
 <body>
     <canvas id="matrix-canvas"></canvas>
+
     <header>
         <div class="header-content">
             <div class="logo">
-                <h2 class="matrix-text">Malamine Guirassy</h2>
             </div>
+            <h2 class="matrix-text"><a href="index.html" id="prénom">Malamine Guirassy</a></h2>
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="profil.html">Profil</a></li>
-                    <li><a href="bts.html">BTS SIO</a></li>
-                    <li><a href="projet.html">Mes projets</a></li>
-                    <li><a href="veille.html">Veille technologique</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="profil.html" aria-label="Profil">Profil</a></li>
+                    <li><a href="bts.html" aria-label="BTS SIO">BTS SIO</a></li>
+                    <li><a href="entreprise.html">Entreprise</a></li>
+                    <li><a href="projet.html" aria-label="Mes projets">Mes projets</a></li>
+                    <li><a href="veille.html" aria-label="Veille technologique">Veille technologique</a></li>
+                    <li><a href="contact.html" aria-label="Contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
-        </nav>
     </header>
 
     <section id="contact" class="content">
         <h2 class="matrix-text">Contact</h2>
+        
+        <!-- Information de contact -->
         <div class="contact-info">
-            <p class="matrix-text">Email : <a href="mailto:email@example.com">malam.guirassy@gmail.com</a></p>
-            <p class="matrix-text">Téléphone : <a href="tel:+1234567890">+33 7 67 49 80 57</a></p>
-            <p class="matrix-text">LinkedIn : <a href="https://www.linkedin.com/in/malamine-guirassy-3361a1296/" target="_blank">Malamine</a></p>
+            <p class="matrix-text">Email : <a href="mailto:malam.guirassy@gmail.com">malam.guirassy@gmail.com</a></p>
+            <p class="matrix-text">Téléphone : <a href="tel:+33767498057">+33 7 67 49 80 57</a></p>
+            <p class="matrix-text">LinkedIn : <a href="https://www.linkedin.com/in/malamine-guirassy-3361a1296/" target="_blank" rel="noopener noreferrer">Malamine</a></p>
         </div>
+        
+        <!-- Formulaire de contact -->
         <div class="contact-form">
-            <form id="contact-form">
+            <form id="contact-form" method="POST" action="#">
                 <label for="name" class="matrix-text">Nom :</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" required placeholder="Votre nom">
                 
                 <label for="email" class="matrix-text">Email :</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" required placeholder="Votre email">
                 
                 <label for="message" class="matrix-text">Message :</label>
-                <textarea id="message" name="message"></textarea>
+                <textarea id="message" name="message" required placeholder="Votre message"></textarea>
                 
                 <button type="submit" class="matrix-button">Envoyer</button>
             </form>
