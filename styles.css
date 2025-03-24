@@ -18,8 +18,12 @@ canvas#matrix-canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -10;              /* On le met bien derrière tout le reste */
+    pointer-events: none;      /* Il ne capte pas les clics => contenu visible et accessible */
+    opacity: 0;                /* Pour le fondu */
+    transition: opacity 1.5s ease;
 }
+
 
 /* Navbar et header fixés en haut */
 header {
@@ -272,7 +276,10 @@ canvas#matrix-canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -10;              /* On le met bien derrière tout le reste */
+    pointer-events: none;      /* Il ne capte pas les clics => contenu visible et accessible */
+    opacity: 0;                /* Pour le fondu */
+    transition: opacity 1.5s ease;
 }
 
 /* Carrousel et animations */
@@ -404,7 +411,6 @@ form button:hover {
 .project-image {
     width: 100%;
     height: 200px; /* Uniforme pour toutes les images */
-    object-fit: cover; /* Ajuste l'image sans la déformer */
     margin-bottom: 1rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
