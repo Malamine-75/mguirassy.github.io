@@ -612,3 +612,43 @@ form button:hover {
     color: inherit;         /* Garder la même couleur après un clic */
     text-decoration: none;  /* Toujours sans soulignement */
 }
+
+.rss-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid #0f0;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px #0f0;
+    margin: 2rem 0;
+    white-space: nowrap;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.rss-carousel-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLeft 120s linear infinite;
+}
+
+.rss-carousel-track a {
+    display: inline-block;
+    color: #0f0;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.rss-carousel-track a:hover {
+    color: #00ff00;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

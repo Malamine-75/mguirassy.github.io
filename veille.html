@@ -8,6 +8,7 @@
 </head>
 <body>
     <canvas id="matrix-canvas"></canvas>
+
     <header>
         <div class="header-content">
             <div class="logo">
@@ -28,22 +29,23 @@
 
     <section id="veille" class="content">
         <h2 class="matrix-text">Veille technologique</h2>
-    
+
         <h3 class="matrix-text">Qu'est-ce que la veille technologique ?</h3>
         <p class="matrix-text veille-highlight">
             La veille technologique, élément de la veille stratégique, consiste à surveiller les évolutions techniques et les innovations dans un secteur d’activité donné. Elle inclut la surveillance, la collecte, le partage et la diffusion d’informations pour anticiper ou s’informer sur des changements en matière de recherche, développement, brevet, lancement de nouveaux produits, matériaux, processus, concepts, innovation de fabrication, etc. Son objectif est d’évaluer l’impact sur l’environnement et l’organisation.
         </p>
-    
+
         <h3 class="matrix-text">Les principaux outils de ma veille</h3>
         <p class="matrix-text">
             Je reçois quotidiennement des e-mails de Google Alertes avec des rapports. Après les avoir triés, je conserve les informations pertinentes dans Pearltrees pour les organiser et les consulter plus facilement. De plus, je consulte fréquemment Feedly et j’ajoute à Pearltrees les liens des articles importants que j’y trouve.
         </p>
-    
+        <a href="https://www.pearltrees.com/momedba" target="_blank" class="matrix-link">📌 Voir mes ressources Pearltrees</a>
+
         <h3 class="matrix-text">Le sujet de ma veille</h3>
         <p class="matrix-text">
             Pour ma veille technologique, j'ai décidé de traiter le thème suivant : la 6G.
         </p>
-    
+
         <div class="document-links">
             <a href="Documents/Vielletechno.pdf" target="_blank" class="matrix-link">
                 <i class="icon-pdf"></i> Consulter la veille technologique
@@ -52,12 +54,49 @@
                 <i class="icon-download"></i> Télécharger la veille technologique
             </a>
         </div>
+
+        <h3 class="matrix-text">Fil d'actualités 6G (défilement)</h3>
+        <div class="rss-carousel-container">
+            <div id="rss-carousel" class="rss-carousel-track">
+                <p>Chargement des articles...</p>
+            </div>
+        </div>
     </section>
-    
+
     <footer>
         <p class="matrix-text">&copy; 2024 Guirassy Malamine. Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        const rssUrl = 'https://news.google.com/rss/search?q=6G+when:7d&hl=fr&gl=FR&ceid=FR:fr';
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        const track = document.getElementById('rss-carousel');
+
+        function loadCarousel() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    track.innerHTML = '';
+                    data.items.slice(0, 10).forEach(item => {
+                        const link = document.createElement('a');
+                        link.href = item.link;
+                        link.target = '_blank';
+                        link.textContent = `📰 ${item.title}`;
+                        track.appendChild(link);
+                    });
+                })
+                .catch(err => {
+                    track.innerHTML = '<p>Erreur lors du chargement du flux RSS.</p>';
+                    console.error(err);
+                });
+        }
+
+        // Chargement initial
+        loadCarousel();
+
+        // Mise à jour toutes les 5 minutes
+        setInterval(loadCarousel, 5 * 60 * 1000);
+    </script>
 </body>
 </html>
